@@ -1,11 +1,33 @@
 package class08_sorting.classroom;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+public class LargestNumber_N2 {
 
-public class LargestNumber {
+    int sort(int c1, int c2){
+
+        String first  = ""+c1+c2;
+        String second = ""+c2+c1;
+        char[] c1arr = first.toCharArray();
+        char[] c2arr = second.toCharArray();
+
+
+//        for(int i=0;i<first.length(); i++){
+//
+//            if(c1arr[i] ==  c2arr[i]) continue;
+//
+//            if(c1arr[i] > c2arr[i]){
+//                return 1;
+//            }else{
+//                return -1;
+//            }
+//
+//        }
+
+
+        return new String(c1arr).compareTo(new String(c2arr));
+    }
+
+
+
 
     public String largestNumber(final int[] A) {
 
@@ -23,35 +45,35 @@ public class LargestNumber {
 
         if(allZeros) return "0";
 
-        List<String> strings = new ArrayList<>();
-        for(int i=0 ;i<A.length; i++){
-            strings.add(""+A[i]);
-        }
 
-        Collections.sort(strings, new Comparator<String>() {
-            @Override
-            public int compare(String A, String B) {
+        for(int i=0;i<A.length; i++){
+            for (int j=i+1; j<A.length; j++){
 
-                String AB = A+B;
-                String BA = B+A;
-                return AB.compareTo(BA) > 0? -1: 1;
+               int sort = sort(A[i], A[j]);
+
+                if (sort <0){
+                    swap(A, i, j);
+                }
             }
-        });
+        }
 
         StringBuilder builder = new StringBuilder();
-
-        for(String s: strings){
-           builder.append(s);
+        for(int a: A){
+            builder.append(a);
         }
-
-
         return builder.toString();
+    }
 
-    };
+
+    private void swap(int[] A, int i, int j) {
+        int temp = A[i];
+        A[i] = A[j];
+        A[j] = temp;
+    }
 
     public static void main(String[] args) {
 
-        LargestNumber obj = new LargestNumber();
+        LargestNumber_N2 obj = new LargestNumber_N2();
         String  res =  obj.largestNumber(new int[]{3, 30, 34, 5, 9});
         System.out.println(res);
 
@@ -66,6 +88,9 @@ public class LargestNumber {
 
         res =  obj.largestNumber(new int[]{1});
         System.out.println(res);
+
+
     }
+
 
 }
