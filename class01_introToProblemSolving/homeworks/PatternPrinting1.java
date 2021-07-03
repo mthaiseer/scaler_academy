@@ -5,12 +5,12 @@ import java.util.List;
 
 public class PatternPrinting1 {
 
-    public static int[][] solve(int A) {
+    public static int[][] solve_Extraspace(int A) {
 
 
 
         List<List<Integer>> result = new ArrayList<>();
-        int arr[][] = new int[A][A];
+       // int arr[][] = new int[A][A];
 
         for (int i = 1; i <= A; i++) {
             List<Integer> inner = new ArrayList<>();
@@ -33,8 +33,31 @@ public class PatternPrinting1 {
         return array;
     }
 
+
+    public int[][] solve(int A){
+
+        int [][] ans = new int[A][];
+        for(int i=0; i<A; i++){
+            ans[i] = new int[i+1];
+            for (int j=0; j<i+1; j++){
+                ans[i][j] = j+1;
+            }
+        }
+
+        return ans;
+    }
+
     public static void main(String[] args) {
-        solve(4);
+
+        PatternPrinting1 obj = new PatternPrinting1();
+        int[][] ans = obj.solve(4);
+
+        for(int i=0; i<ans.length; i++){
+            for(int j=0; j<ans[i].length; j++){
+                System.out.print(ans[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
 }
