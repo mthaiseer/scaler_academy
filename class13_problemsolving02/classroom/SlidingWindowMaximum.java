@@ -1,31 +1,65 @@
 package class13_problemsolving02.classroom;
 
-import java.util.Collections;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class SlidingWindowMaximum {
 
     public int[] slidingMaximum(final int[] A, int B) {
 
+        Deque<Integer> deque = new LinkedList<>();
+        int windowStart =0;
+        List<Integer> resultList  = new ArrayList<>();
 
-        return null;
+        for(int i=0; i<A.length; i++){
+
+            if(!deque.isEmpty() && A[deque.peek()] < A[i]){
+
+                while(!deque.isEmpty()){
+                    deque.pop();
+                }
+                deque.addFirst(i);
+
+            }else if(!deque.isEmpty() && A[deque.peek()]  > A[i]){
+
+                while(A[deque.getLast()] < A[i]){
+                    deque.removeLast();
+                }
+                deque.addLast(i);
+            }else{
+                deque.addFirst(i);
+            }
+
+
+
+            if(i>=B-1){
+                resultList.add(A[deque.peek()]);
+                if(deque.peek() == windowStart){
+                    deque.removeFirst();
+                }
+                windowStart++;
+            }
+        }
+
+        int [] res = new int[resultList.size()];
+        int i =0;
+        for(int x: resultList){
+            res[i] = x;
+            i++;
+        }
+        return res;
 
     }
 
     public static void main(String[] args) {
 
-        if(3 > 6 ){
-            System.out.println("print me ");
-        }
         SlidingWindowMaximum obj = new SlidingWindowMaximum();
-       int arr[] = obj.slidingMaximum(new int[] {6,3,7,1,2,1,0}, 3);
-       // int arr[] = obj.slidingMaximum(new int[] {1, 3, -1, -3, 5, 3, 6, 7}, 3);
+        int arr[] = obj.slidingMaximum(new int[] {1,2,1,2,1,2,1,1,1}, 2);
+       //int arr[] = obj.slidingMaximum(new int[] {6,3,7,1,2,1,0}, 3);
+        //int arr[] = obj.slidingMaximum(new int[] {1, 3, -1, -3, 5, 3, 6, 7}, 3);
         //int arr[] = obj.slidingMaximum_TLE(new int[] {1, 2, 3, 4, 2, 7, 1, 3, 6}, 11);
-//        for(int x: arr){
-//            System.out.print(x + " ");
-//        }
+        for(int x: arr){
+            System.out.print(x + " ");
+        }
     }
 
     public int[] slidingMaximum_TLE(final int[] A, int B) {
