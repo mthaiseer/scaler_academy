@@ -8,6 +8,7 @@ public class SievePrime {
 
     boolean[]  calculateSeive(int N){
 
+
         boolean[] seive  = new boolean[N+1];
         Arrays.fill(seive, true);
         seive[0] = false;
@@ -17,7 +18,7 @@ public class SievePrime {
         for(int i=2; i*i <=N; i++){
 
             if(seive[i]){
-                for(int j=i*2; j<=N; j+=i){
+                for(int j=i*i; j<=N; j+=i){
                     seive[j] = false;
                 }
             }

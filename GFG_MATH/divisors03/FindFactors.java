@@ -48,8 +48,8 @@ public class FindFactors {
 
     public static void main(String[] args) {
         FindFactors obj = new FindFactors();
-        obj.printFactorsNaive(25);
-        obj.printFactorsBetterUnordered(1000);
-        obj.printFactorsBetterOrdered(1000);
+//        obj.printFactorsNaive(25);
+//        obj.printFactorsBetterUnordered(1000);
+        obj.printFactorsBetterUnordered(9);
     }
 }

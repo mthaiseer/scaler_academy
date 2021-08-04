@@ -27,19 +27,19 @@ public class GCDFinder {
 
     /**
      *
-     * @param x
-     * @param y
+     * @param a
+     * @param b
      * @return
      */
-    int gcdBetter(int x, int y){
+    int gcdBetter(int a, int b){
 
         int res = 1;
-        while (x != y){
+        while (a != b){
 
-            if(x > y){
-                res =  x-=y;
+            if(a > b){
+                res =  a-=b;
             }else{
-                res =  y-=x;
+                res =  b-=a;
             }
 
 
@@ -56,6 +56,8 @@ public class GCDFinder {
         System.out.println(obj.gcdBetter(15, 11));
         System.out.println(obj.gcdBetter(50, 25));
         System.out.println(obj.gcdBetter(10, 8));
+        System.out.println(obj.gcdBetter(3, 20));
+        System.out.println(obj.gcdBetter(3, 2));
     }
 
 }

@@ -14,6 +14,7 @@ public class EuclideanGCD {
 
     public static void main(String[] args) {
         System.out.println(new EuclideanGCD().euclidean(10, 12));
-        System.out.println(new EuclideanGCD().euclidean(9, 11));
+        System.out.println(new EuclideanGCD().euclidean(2, 70));
+        System.out.println(new EuclideanGCD().euclidean(2, 8));
     }
 }
