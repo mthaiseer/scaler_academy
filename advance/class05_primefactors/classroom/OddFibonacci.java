@@ -1,4 +1,4 @@
-package advance.class05_primefactors;
+package advance.class05_primefactors.classroom;
 
 public class OddFibonacci {
 

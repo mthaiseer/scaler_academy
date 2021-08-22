@@ -50,12 +50,12 @@ public class MissingNumber {
      * TIME : O(N)
      * SPACE : O(1)
      * Issue : No integer overflow even if array elements are huge
-     * @param A
+     * @param nums
      * @return
      */
-    int missingNumber_xor(int [] A){
+    int missingNumber_xor(int [] nums){
         int N = Integer.MIN_VALUE;
-        for(int x: A){
+        for(int x: nums){
             N = Math.max(N, x);
         }
 
@@ -65,7 +65,7 @@ public class MissingNumber {
         }
 
         int arrayXOR = 0;
-        for(int x: A){
+        for(int x: nums){
             arrayXOR^=x;
         }
 

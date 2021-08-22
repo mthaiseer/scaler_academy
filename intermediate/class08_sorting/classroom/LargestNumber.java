@@ -66,6 +66,9 @@ public class LargestNumber {
 
         res =  obj.largestNumber(new int[]{1});
         System.out.println(res);
+
+        res =  obj.largestNumber(new int[]{3,30, 34, 5, 9});
+        System.out.println(res);
     }
 
 }

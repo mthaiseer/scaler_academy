@@ -1,4 +1,4 @@
-package advance.class03_modularArithmatics.homeowork;
+package advance.class03_modularArithmatics.homework;
 
 public class PairDivisibleByM {
 
