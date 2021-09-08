@@ -17,6 +17,6 @@ public class StringSubset {
     }
 
     public static void main(String[] args) {
-       new StringSubset().subset("ABC", 0, "");
+       new StringSubset().subset("123", 0, "");
     }
 }

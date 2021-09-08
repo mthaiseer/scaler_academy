@@ -31,5 +31,6 @@ public class FindLCM {
         FindLCM obj = new FindLCM();
         System.out.println(obj.lcmNaive(4, 6));
         System.out.println(obj.lcmOptimized(4, 6));
+        System.out.println(obj.lcmOptimized(2, 3));
     }
 }

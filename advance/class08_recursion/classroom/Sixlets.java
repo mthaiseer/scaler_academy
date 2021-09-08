@@ -13,7 +13,7 @@ public class Sixlets {
     int   solve(ArrayList<Integer> A, int B, int sum, int i, int cnt) {
 
 
-        if( sum > 1000) {
+        if( sum > B) {
             return 0;
         }
 
