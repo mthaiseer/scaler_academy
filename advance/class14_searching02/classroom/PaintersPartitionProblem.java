@@ -33,9 +33,9 @@ public class PaintersPartitionProblem {
 
     public int paint(int A, int B, int[] C) {
 
-        int MOD = 1000000007;
+        int MOD = 10000003;
         int maxVal =  Integer.MIN_VALUE;
-        int  ans = 0;
+        long  ans = 0;
         long cumSum =0;
         for(int x: C){
             maxVal = Math.max(maxVal, x);
@@ -53,7 +53,7 @@ public class PaintersPartitionProblem {
             boolean isPossible = findOptimalPatition(A, B, C, mid);
 
             if(isPossible){
-                ans  = (int)mid %MOD;
+                ans  = mid;
                 max = mid-1;
 
             }else{
@@ -63,7 +63,7 @@ public class PaintersPartitionProblem {
 
 
         }
-        return ans;
+        return (int) (ans%MOD);
     }
 
     public static void main(String[] args) {
